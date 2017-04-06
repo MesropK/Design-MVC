@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B284DE1F1E96446A00737160 /* PhotoRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = B284DE1E1E96446A00737160 /* PhotoRecord.swift */; };
+		B284DE221E964BDB00737160 /* PendingOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B284DE211E964BDB00737160 /* PendingOperations.swift */; };
+		B284DE241E964D0300737160 /* PhotoOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B284DE231E964D0300737160 /* PhotoOperations.swift */; };
 		B29F0D4D1E93D7D90045FE0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29F0D4C1E93D7D90045FE0E /* AppDelegate.swift */; };
 		B29F0D4F1E93D7D90045FE0E /* AllImagesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29F0D4E1E93D7D90045FE0E /* AllImagesListViewController.swift */; };
 		B29F0D511E93D7D90045FE0E /* MyImagesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29F0D501E93D7D90045FE0E /* MyImagesListViewController.swift */; };
@@ -35,6 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B284DE1E1E96446A00737160 /* PhotoRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoRecord.swift; sourceTree = "<group>"; };
+		B284DE211E964BDB00737160 /* PendingOperations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PendingOperations.swift; sourceTree = "<group>"; };
+		B284DE231E964D0300737160 /* PhotoOperations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoOperations.swift; sourceTree = "<group>"; };
 		B29F0D491E93D7D90045FE0E /* Design-MVC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Design-MVC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B29F0D4C1E93D7D90045FE0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B29F0D4E1E93D7D90045FE0E /* AllImagesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllImagesListViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +82,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B284DE201E96447600737160 /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				B284DE1E1E96446A00737160 /* PhotoRecord.swift */,
+				B284DE211E964BDB00737160 /* PendingOperations.swift */,
+				B284DE231E964D0300737160 /* PhotoOperations.swift */,
+			);
+			name = Operations;
+			sourceTree = "<group>";
+		};
 		B29F0D401E93D7D90045FE0E = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +115,7 @@
 		B29F0D4B1E93D7D90045FE0E /* Design-MVC */ = {
 			isa = PBXGroup;
 			children = (
+				B284DE201E96447600737160 /* Operations */,
 				B29F0D4C1E93D7D90045FE0E /* AppDelegate.swift */,
 				B29F0D4E1E93D7D90045FE0E /* AllImagesListViewController.swift */,
 				B29F0D501E93D7D90045FE0E /* MyImagesListViewController.swift */,
@@ -196,6 +213,7 @@
 				TargetAttributes = {
 					B29F0D481E93D7D90045FE0E = {
 						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = PJFS73Z5NP;
 						ProvisioningStyle = Automatic;
 					};
 					B29F0D5E1E93D7D90045FE0E = {
@@ -263,7 +281,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B29F0D511E93D7D90045FE0E /* MyImagesListViewController.swift in Sources */,
+				B284DE1F1E96446A00737160 /* PhotoRecord.swift in Sources */,
+				B284DE241E964D0300737160 /* PhotoOperations.swift in Sources */,
 				B29F0D4D1E93D7D90045FE0E /* AppDelegate.swift in Sources */,
+				B284DE221E964BDB00737160 /* PendingOperations.swift in Sources */,
 				B29F0D4F1E93D7D90045FE0E /* AllImagesListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -418,7 +439,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = PJFS73Z5NP;
 				INFOPLIST_FILE = "Design-MVC/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "test.Design-MVC";
@@ -431,7 +452,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = PJFS73Z5NP;
 				INFOPLIST_FILE = "Design-MVC/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "test.Design-MVC";
@@ -513,6 +534,7 @@
 				B29F0D751E93D7D90045FE0E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B29F0D761E93D7D90045FE0E /* Build configuration list for PBXNativeTarget "Design-MVCTests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +543,7 @@
 				B29F0D781E93D7D90045FE0E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B29F0D791E93D7D90045FE0E /* Build configuration list for PBXNativeTarget "Design-MVCUITests" */ = {
 			isa = XCConfigurationList;
@@ -529,6 +552,7 @@
 				B29F0D7B1E93D7D90045FE0E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

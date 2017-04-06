@@ -14,7 +14,7 @@
         <!--All-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="Design_MVC" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9pv-A4-QxB" customClass="AllImagesListViewController" customModule="Design_MVC" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
@@ -47,6 +47,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="All" image="Menu" id="acW-dT-cKf"/>
+                    <connections>
+                        <outlet property="tableVIew" destination="b7E-S0-u7A" id="whR-Fh-G3O"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
