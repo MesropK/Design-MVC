@@ -10,6 +10,9 @@
 		B20EDA541E9B844C003AFAE5 /* minus.png in Resources */ = {isa = PBXBuildFile; fileRef = B20EDA531E9B844C003AFAE5 /* minus.png */; };
 		B20EDA561E9B8471003AFAE5 /* false .png in Resources */ = {isa = PBXBuildFile; fileRef = B20EDA551E9B8471003AFAE5 /* false .png */; };
 		B20EDA581E9B848E003AFAE5 /* no rating.png in Resources */ = {isa = PBXBuildFile; fileRef = B20EDA571E9B848E003AFAE5 /* no rating.png */; };
+		B275BA821E9E72BD00F611AE /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B275BA811E9E72BD00F611AE /* PhotoViewController.swift */; };
+		B275BAA51E9E7D0E00F611AE /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B275BAA41E9E7D0E00F611AE /* CoreDataManager.swift */; };
+		B275BAA81E9E7D9700F611AE /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B275BAA61E9E7D9700F611AE /* Model.xcdatamodeld */; };
 		B284DE1F1E96446A00737160 /* PhotoRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = B284DE1E1E96446A00737160 /* PhotoRecord.swift */; };
 		B284DE221E964BDB00737160 /* PendingOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B284DE211E964BDB00737160 /* PendingOperations.swift */; };
 		B284DE241E964D0300737160 /* PhotoOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B284DE231E964D0300737160 /* PhotoOperations.swift */; };
@@ -44,6 +47,9 @@
 		B20EDA531E9B844C003AFAE5 /* minus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = minus.png; sourceTree = "<group>"; };
 		B20EDA551E9B8471003AFAE5 /* false .png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "false .png"; sourceTree = "<group>"; };
 		B20EDA571E9B848E003AFAE5 /* no rating.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "no rating.png"; sourceTree = "<group>"; };
+		B275BA811E9E72BD00F611AE /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		B275BAA41E9E7D0E00F611AE /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		B275BAA71E9E7D9700F611AE /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		B284DE1E1E96446A00737160 /* PhotoRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoRecord.swift; sourceTree = "<group>"; };
 		B284DE211E964BDB00737160 /* PendingOperations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PendingOperations.swift; sourceTree = "<group>"; };
 		B284DE231E964D0300737160 /* PhotoOperations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoOperations.swift; sourceTree = "<group>"; };
@@ -121,10 +127,13 @@
 		B29F0D4B1E93D7D90045FE0E /* Design-MVC */ = {
 			isa = PBXGroup;
 			children = (
+				B275BAA41E9E7D0E00F611AE /* CoreDataManager.swift */,
+				B275BAA61E9E7D9700F611AE /* Model.xcdatamodeld */,
 				B284DE201E96447600737160 /* Operations */,
 				B29F0D4C1E93D7D90045FE0E /* AppDelegate.swift */,
 				B29F0D4E1E93D7D90045FE0E /* AllImagesListViewController.swift */,
 				B29F0D501E93D7D90045FE0E /* MyImagesListViewController.swift */,
+				B275BA811E9E72BD00F611AE /* PhotoViewController.swift */,
 				B20EDA551E9B8471003AFAE5 /* false .png */,
 				B20EDA571E9B848E003AFAE5 /* no rating.png */,
 				B20EDA531E9B844C003AFAE5 /* minus.png */,
@@ -296,7 +305,10 @@
 				B284DE1F1E96446A00737160 /* PhotoRecord.swift in Sources */,
 				B284DE241E964D0300737160 /* PhotoOperations.swift in Sources */,
 				B29F0D4D1E93D7D90045FE0E /* AppDelegate.swift in Sources */,
+				B275BA821E9E72BD00F611AE /* PhotoViewController.swift in Sources */,
+				B275BAA81E9E7D9700F611AE /* Model.xcdatamodeld in Sources */,
 				B284DE221E964BDB00737160 /* PendingOperations.swift in Sources */,
+				B275BAA51E9E7D0E00F611AE /* CoreDataManager.swift in Sources */,
 				B29F0D4F1E93D7D90045FE0E /* AllImagesListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -567,6 +579,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B275BAA61E9E7D9700F611AE /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B275BAA71E9E7D9700F611AE /* Model.xcdatamodel */,
+			);
+			currentVersion = B275BAA71E9E7D9700F611AE /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B29F0D411E93D7D90045FE0E /* Project object */;
 }

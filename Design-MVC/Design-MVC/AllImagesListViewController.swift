@@ -14,6 +14,7 @@ class AllImagesListViewController: UIViewController {
     
     var photos = [PhotoRecord]()
     let pendingOperations = PendingOperations()
+    weak var selectedImage: UIImage?
 
     @IBOutlet weak var tableVIew: UITableView!
     
@@ -23,6 +24,14 @@ class AllImagesListViewController: UIViewController {
         tableVIew.dataSource = self
         fetchPhotoDetails()
         (self.tableVIew as UIScrollView).delegate = self
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier,
+                identifier == "showFromAllList",
+            let photoViewController = segue.destination as? PhotoViewController {
+            photoViewController.image = selectedImage
+        }
     }
     
     func fetchPhotoDetails() {
@@ -57,7 +66,7 @@ class AllImagesListViewController: UIViewController {
 }
 
 
-extension AllImagesListViewController : UITableViewDelegate, UITableViewDataSource {
+extension AllImagesListViewController :  UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return photos.count
@@ -163,6 +172,17 @@ extension AllImagesListViewController : UITableViewDelegate, UITableViewDataSour
         }
     }
 
+}
+
+extension AllImagesListViewController : UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        if let cell = tableView.cellForRow(at: indexPath) {
+            selectedImage = cell.imageView?.image
+        }
+        return indexPath
+    }
+    
 }
 
 //MARK: Operations
