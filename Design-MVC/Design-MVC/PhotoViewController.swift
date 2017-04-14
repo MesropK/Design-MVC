@@ -30,6 +30,11 @@ enum Filter : Int {
     }
 }
 
+enum PhotoViewerType {
+    case allImages
+    case forUser
+}
+
 class PhotoViewController: UIViewController {
     
     var image: UIImage?
@@ -41,11 +46,25 @@ class PhotoViewController: UIViewController {
         }
     }
     
-
+    var type: PhotoViewerType?
+    
     @IBOutlet var filterButtons: [UIButton]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configure()
+    }
+    
+    func configure() {
+        guard let type = self.type  else {
+            fatalError()
+        }
+        switch type {
+        case .allImages:
+            break
+        case .forUser:
+            break
+        }
     }
     
     @IBAction func deonButtonAction(_ sender: UIButton) {
@@ -67,7 +86,9 @@ class PhotoViewController: UIViewController {
     }
     
     func saveImageToDataBase() {
-        
+        if let image = self.image {
+            CoreDataManager.prepareImageForSaving(image: image)
+        }
     }
     
     func makePhoto(with filter: Filter) {

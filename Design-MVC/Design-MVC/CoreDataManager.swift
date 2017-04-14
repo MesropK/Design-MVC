@@ -13,17 +13,25 @@ import UIKit
 class CoreDataManager {
     // MARK: - Core Data stack
     
-    
-    
-    
     // dispatch queues
     static let convertQueue = DispatchQueue(label: "convertQueue", qos: .utility)
     static let saveQueue =   DispatchQueue(label: "saveQueue", qos: .utility)
     
+    static func saveUser(_ userData: UserData) throws -> User {
+        let user = User(context:  persistentContainer.viewContext)
+        let allUsersCountFetchRequest: NSFetchRequest<User> = User.fetchRequest()
+        let count = try self.persistentContainer.viewContext.count(for: allUsersCountFetchRequest)
+        user.id       = count + 1 as NSNumber
+        user.name     = userData.name
+        user.email    = userData.email
+        user.password = userData.password
+        return user
+    }
+    
     static func prepareImageForSaving(image: UIImage) {
         
         // use date as unique id
-        let date : Double = NSDate().timeIntervalSince1970
+        let date : Double = Date().timeIntervalSince1970
         
         // dispatch with gcd.
         
@@ -46,12 +54,12 @@ class CoreDataManager {
             }
             
             // send to save function
-            self.saveImage(imageData, thumbnailData: thumbnailData, date: date)
+            self.saveImage(with: imageData as NSData, thumbnailData: thumbnailData as NSData, date: date)
             
         }
     }
     
-    static func saveImage(imageData:NSData, thumbnailData:NSData, date: Double) {
+    private static func saveImage(with imageData: NSData, thumbnailData: NSData, date: Double) {
         saveQueue.async(flags: .barrier) {
             // create new objects in moc
 //            guard let moc = self.persistentContainer.viewContext else {
@@ -59,19 +67,20 @@ class CoreDataManager {
 //            }
             let moc = persistentContainer.viewContext
             
-            guard let fullRes = NSEntityDescription.insertNewObjectForEntityForName("FullRes", inManagedObjectContext: moc) as? FullRes, let thumbnail = NSEntityDescription.insertNewObjectForEntityForName("Thumbnail", inManagedObjectContext: moc) as? Thumbnail else {
+            guard let photo = NSEntityDescription.insertNewObject(forEntityName: "Photo", into: moc) as? Photo,
+                let thumbnail = NSEntityDescription.insertNewObject(forEntityName: "Thumbnail", into: moc) as? Thumbnail else {
                 // handle failed new object in moc
                 print("moc error")
                 return
             }
             
             //set image data of fullres
-            fullRes.imageData = imageData
+            photo.rawData = imageData
             
             //set image data of thumbnail
-            thumbnail.imageData = thumbnailData
+            thumbnail.rawData = thumbnailData
             thumbnail.id = date as NSNumber
-            thumbnail.fullRes = fullRes
+            thumbnail.fullImage = photo
             
             // save the new objects
             do {
@@ -129,4 +138,32 @@ class CoreDataManager {
         }
     }
 
+}
+
+
+extension CGSize {
+    
+    func resizeFill(toSize: CGSize) -> CGSize {
+        
+        let scale : CGFloat = (self.height / self.width) < (toSize.height / toSize.width) ? (self.height / toSize.height) : (self.width / toSize.width)
+        return CGSize(width: (self.width / scale), height: (self.height / scale))
+        
+    }
+}
+
+extension UIImage {
+    
+    func scale(toSize newSize:CGSize) -> UIImage {
+        
+        // make sure the new size has the correct aspect ratio
+        let aspectFill = self.size.resizeFill(toSize: newSize)
+        
+        UIGraphicsBeginImageContextWithOptions(aspectFill, false, 0.0);
+        self.draw(in: CGRect(x: 0, y: 0, width: aspectFill.width, height: aspectFill.height))
+        let newImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        return newImage
+    }
+    
 }
