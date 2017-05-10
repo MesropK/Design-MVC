@@ -31,6 +31,7 @@ class AllImagesListViewController: UIViewController {
                 identifier == "showFromAllList",
             let photoViewController = segue.destination as? PhotoViewController {
             photoViewController.image = selectedImage
+            photoViewController.type = .allImages
         }
     }
     
@@ -38,7 +39,7 @@ class AllImagesListViewController: UIViewController {
         let request = URLRequest(url:dataSourceURL)
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         
-        NSURLConnection.sendAsynchronousRequest(request, queue: OperationQueue.main) {response,data,error in
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
             if data != nil {
                 
                 let datasourceDictionary = (try! PropertyListSerialization.propertyList(from: data!, options:PropertyListSerialization.MutabilityOptions.mutableContainersAndLeaves, format: nil)) as! NSDictionary
@@ -56,11 +57,12 @@ class AllImagesListViewController: UIViewController {
                 self.tableVIew.reloadData()
             }
             if error != nil {
-                let alert = UIAlertView(title:"Oops!",message:error!.localizedDescription, delegate:nil, cancelButtonTitle:"OK")
-                alert.show()
+                let alertController = UIAlertController(title: "Ooops!", message: error?.localizedDescription, preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                self.show(alertController, sender: nil)
             }
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
-        }
+        }.resume()
     }
     
 }

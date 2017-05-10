@@ -264,7 +264,7 @@
 				TargetAttributes = {
 					B29F0D481E93D7D90045FE0E = {
 						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = PJFS73Z5NP;
+						DevelopmentTeam = F4KF659SS5;
 						ProvisioningStyle = Automatic;
 					};
 					B29F0D5E1E93D7D90045FE0E = {
@@ -499,7 +499,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = PJFS73Z5NP;
+				DEVELOPMENT_TEAM = F4KF659SS5;
 				INFOPLIST_FILE = "Design-MVC/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "test.Design-MVC";
@@ -512,7 +512,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = PJFS73Z5NP;
+				DEVELOPMENT_TEAM = F4KF659SS5;
 				INFOPLIST_FILE = "Design-MVC/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "test.Design-MVC";
